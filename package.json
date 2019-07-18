@@ -1,0 +1,13 @@
+{
+  "name": "serverless-template-mono-repo",
+  "version": "1.0.0",
+  "description": "serverless-template-mono-repo",
+  "main": "handler.js",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-domain-manager": "^3.2.6"
+  },
+  "dependencies": {}
+}

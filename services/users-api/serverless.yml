@@ -1,0 +1,24 @@
+service: mono-repo-users-api
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: us-east-1
+  apiGateway:
+    restApiId:
+      'Fn::ImportValue': ${self:custom.stage}-ApiGatewayRestApiId
+    restApiRootResourceId:
+      'Fn::ImportValue': ${self:custom.stage}-ApiGatewayRestApiRootResourceId
+
+functions:
+  main:
+    handler: handler.main
+    events:
+      - http:
+          path: /users
+          method: get
+          cors: true
+
